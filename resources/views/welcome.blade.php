@@ -10,7 +10,7 @@
 <body>
     <h1 class="text-center nt-3">Selamat datang di Asrama i</h1>
     <div class="text-center">
-        <a href="{{ route('Santri.tampil')}}" class="btn btn-primary">Daftar Santri Baru</a>
+        <a href="login" class="btn btn-primary">Daftar Santri Baru</a>
     </div>
 </body>
 </html>

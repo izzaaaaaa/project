@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('alamat');
-            $table->number('no_hp');
+            $table->integer('no_hp');
+            $table->unique('no_hp');
             $table->string('jenis_kelamin');
             $table->string('asal_ponpes');
             $table->timestamps();

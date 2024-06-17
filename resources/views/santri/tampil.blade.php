@@ -6,9 +6,10 @@
     <div class="ms-auto">
         <a class="btn btn-success" href="{{ Route('Santri.tambah')}}" >Tambah Santri</a>
     </div>
+    <div class="px-3 -mt-2 nav-item">
+        <a href="/login" class="btn btn-primary">Logout</a>
+    </div>
 </div>
-
-
 <table class="table">
     <tr>
         <th>No</th>
