@@ -29,18 +29,16 @@ class SessionController extends Controller
         'password'=>$request->password,
        ];
        if(Auth::attempt($infologin)){
-        //kalau autentikasi sukses
         return redirect('santri')->with('berhasil yaaa','Alhamdulillah beres');
        } else {
-        //kalau autentikasi gagal
-        // return 'gagal';
         return redirect('login')->withErrors('Username  dan password yang dimasukan tidak valid');
-       }
+       };
     }
 
     function logout()
     {
-        //
+        Auth::logout();
+        return redirect('login')->with('succes', 'Berhasil Logout');
     }
 
     function create()
@@ -50,14 +48,14 @@ class SessionController extends Controller
 
     function register(Request $request)
     {
-        Session::flash('nama', $request->nama);
+        Session::flash('name', $request->name);
         Session::flash('email', $request->email);
         $request->validate([
-        'nama' => 'required',
+        'name' => 'required',
         'email' => 'required|email|unique:users',
         'password' => 'required|min:8',
        ],[
-        'nama.required' => 'Nama wajib diisi',
+        'name.required' => 'Nama wajib diisi',
         'email.required' => 'Email wajib diisi',
         'email.email' => 'Email tidak valid',
         'email.unique' => 'Email sudah ada, Ganti lainnya',
@@ -66,7 +64,7 @@ class SessionController extends Controller
        ]);
 
        $inforegis = [
-        'nama'=>$request->nama,
+        'name'=>$request->name,
         'email'=>$request->email,
         'password'=>Hash::make($request->password),
        ];
@@ -78,14 +76,11 @@ class SessionController extends Controller
         'password'=>$request->password,
        ];
 
-       if (Auth::attempt($inforegis)){
-        //kalau autentikasi sukses
-        return redirect('login')->with('berhasil yaaa',Auth::user()->name,'Alhamdulillah beres');
-       } else {
-        //kalau autentikasi gagal
-        // return 'gagal';
+       if (Auth::attempt($infologin)){
+        return redirect('login')->with('berhasil yaaa', 'Alhamdulillah beres');
+       } else{
         return redirect('register')->withErrors('Username  dan password yang dimasukan tidak valid');
-       }
+       };
     
     }
 
