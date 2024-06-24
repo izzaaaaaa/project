@@ -53,7 +53,7 @@ class SessionController extends Controller
         $request->validate([
         'name' => 'required',
         'email' => 'required|email|unique:users',
-        'password' => 'required|min:8',
+        'password' => 'required|min:6',
        ],[
         'name.required' => 'Nama wajib diisi',
         'email.required' => 'Email wajib diisi',

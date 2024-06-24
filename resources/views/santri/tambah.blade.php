@@ -2,9 +2,11 @@
 @section('konten')
     
 
-<a href="{{ url('santri')}}" class=" btn btn-secondary">< kembali</a>
-<h4>Tambah santri</h4>
 
+<a href="{{ url('santri')}}" class=" btn btn-secondary" aria-current="page">kembali</a>
+
+
+<h4>Tambah santri</h4>
 <form action="{{ route('Santri.submit')}}" method="post">
     @csrf
     <label>Nama</label>
